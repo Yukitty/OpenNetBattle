@@ -45,11 +45,6 @@ using swoosh::ActivityController;
 
 // forward decl.
 class GameSession;
-class CardPackagePartitioner;
-class PlayerPackagePartitioner;
-class BlockPackagePartitioner;
-class MobPackagePartitioner;
-class LuaLibraryPackagePartitioner;
 
 enum class Endianness : short {
   big = 0,
@@ -74,15 +69,15 @@ private:
   InputManager inputManager;
   NetManager netManager;
 
-  CardPackagePartitioner* cardPackagePartitioner{ nullptr };
-  PlayerPackagePartitioner* playerPackagePartitioner{ nullptr };
-  MobPackagePartitioner* mobPackagePartitioner{ nullptr };
-  BlockPackagePartitioner* blockPackagePartitioner{ nullptr };
-  LuaLibraryPackagePartitioner* luaLibraryPackagePartitioner{ nullptr };
+  class CardPackagePartitioner* cardPackagePartitioner{ nullptr };
+  class PlayerPackagePartitioner* playerPackagePartitioner{ nullptr };
+  class MobPackagePartitioner* mobPackagePartitioner{ nullptr };
+  class BlockPackagePartitioner* blockPackagePartitioner{ nullptr };
+  class LuaLibraryPackagePartitioner* luaLibraryPackagePartitioner{ nullptr };
 
   DrawWindow& window;
   ConfigReader reader;
-  ConfigSettings configSettings;
+  class ConfigSettings configSettings;
   GameSession* session;
 
   // mouse stuff
@@ -155,17 +150,17 @@ public:
   const std::string PicturesPath();
   const std::string SaveGamesPath();
 
-  CardPackagePartitioner& CardPackagePartitioner();
-  PlayerPackagePartitioner& PlayerPackagePartitioner();
-  MobPackagePartitioner& MobPackagePartitioner();
-  BlockPackagePartitioner& BlockPackagePartitioner();
-  LuaLibraryPackagePartitioner& LuaLibraryPackagePartitioner();
+  class CardPackagePartitioner& CardPackagePartitioner();
+  class PlayerPackagePartitioner& PlayerPackagePartitioner();
+  class MobPackagePartitioner& MobPackagePartitioner();
+  class BlockPackagePartitioner& BlockPackagePartitioner();
+  class LuaLibraryPackagePartitioner& LuaLibraryPackagePartitioner();
 
   static char* LocalPartition;
   static char* RemotePartition;
   static char* ServerPartition;
 
-  ConfigSettings& ConfigSettings();
+  class ConfigSettings& ConfigSettings();
   GameSession& Session();
 
   /**
